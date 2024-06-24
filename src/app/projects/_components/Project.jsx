@@ -21,7 +21,7 @@ export default function Project({ project = {} }) {
     <>
       <tr className="bg-slate-600 text-white even:bg-slate-700 hover:bg-slate-800">
         <TableTd>
-          <Link href="#">
+          <Link href={`/projects/${id}`}>
             <p className="cursor-pointer">{projectName}</p>
           </Link>
         </TableTd>
