@@ -19,11 +19,11 @@ const projectSchema = new Schema({
   },
   workingTime: {
     type: String,
-    required: true,
+    required: false,
   },
   breakTime: {
     type: String,
-    required: true,
+    required: false,
   },
   overTime: {
     type: String,

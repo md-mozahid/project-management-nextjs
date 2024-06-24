@@ -11,8 +11,8 @@ export default async function ProjectList() {
         <table className="table-auto border-collapse border border-slate-400 text-center">
           <thead className="bg-teal-800">
             <tr className="text-slate-100 text-sm md:text-lg">
-              <TableTh className="md:w-44 w-auto" rowSpan="2">
-                Projects
+              <TableTh className="md:w-52 w-auto" rowSpan="2">
+                Project Name
               </TableTh>
               <TableTh className="md:w-48 w-auto" colSpan="2">
                 Manpower
@@ -20,25 +20,25 @@ export default async function ProjectList() {
               <TableTh className="md:w-60 w-auto" rowSpan="2">
                 Project Head
               </TableTh>
-              <TableTh className="md:w-36 w-auto" rowSpan="2">
+              <TableTh className="md:w-40 w-auto" rowSpan="2">
                 Working Time
               </TableTh>
-              <TableTh className="md:w-20 w-auto" rowSpan="2">
+              {/* <TableTh className="md:w-20 w-auto" rowSpan="2">
                 Break
-              </TableTh>
+              </TableTh> */}
               <TableTh className="md:w-24 w-auto" rowSpan="2">
                 Over Time
               </TableTh>
-              <TableTh className="md:w-44 w-auto" rowSpan="2">
+              <TableTh className="md:w-32 w-auto" rowSpan="2">
                 Off Day
               </TableTh>
-              <TableTh className="md:w-28 w-auto" rowSpan="2">
+              <TableTh className="md:w-36 w-auto" rowSpan="2">
                 Start Date
               </TableTh>
-              <TableTh className="md:w-28 w-auto" rowSpan="2">
+              <TableTh className="md:w-36 w-auto" rowSpan="2">
                 End Date
               </TableTh>
-              <TableTh className="md:w-64 w-auto" rowSpan="2">
+              <TableTh className="md:w-72 w-auto" rowSpan="2">
                 Remarks
               </TableTh>
             </tr>

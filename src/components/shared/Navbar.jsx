@@ -30,7 +30,7 @@ export default function Navbar() {
               </div>
             )}
           </div>
-          <CustomLink path="#">
+          <CustomLink path="/addProject">
             <button className="btn btn-primary btn-fw">
               <span className="text-xl">+</span> Add Project
             </button>

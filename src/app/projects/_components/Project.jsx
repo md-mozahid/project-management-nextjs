@@ -39,9 +39,9 @@ export default function Project({ project = {} }) {
         <TableTd>
           <p>{workingTime}</p>
         </TableTd>
-        <TableTd>
+        {/* <TableTd>
           <p>{breakTime}</p>
-        </TableTd>
+        </TableTd> */}
         <TableTd>
           <Link href="#">
             <p>{overTime}</p>
