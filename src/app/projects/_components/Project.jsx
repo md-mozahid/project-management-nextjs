@@ -4,13 +4,13 @@ import TableTd from "./td";
 export default function Project({ project = {} }) {
   const {
     id,
-    projectName = "BOF",
+    projectName,
     manpowerSite,
     manpowerFactory,
     projectHead,
     workingTime,
     breakTime,
-    totalOverTime,
+    overTime,
     offDay,
     startDate,
     endDate,
@@ -19,7 +19,7 @@ export default function Project({ project = {} }) {
 
   return (
     <>
-      <tr className="bg-slate-600 even:bg-slate-700 hover:bg-slate-800">
+      <tr className="bg-slate-600 text-white even:bg-slate-700 hover:bg-slate-800">
         <TableTd>
           <Link href="#">
             <p className="cursor-pointer">{projectName}</p>
@@ -44,7 +44,7 @@ export default function Project({ project = {} }) {
         </TableTd>
         <TableTd>
           <Link href="#">
-            <p>{totalOverTime}</p>
+            <p>{overTime}</p>
           </Link>
         </TableTd>
         <TableTd>

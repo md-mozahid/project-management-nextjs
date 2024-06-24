@@ -1,0 +1,15 @@
+[
+  {
+    "_id": {
+      "$oid": "663a06e7bfe65e5778eedf2a"
+    },
+    "firstName": "John",
+    "lastName": "Doe",
+    "password": "password123",
+    "email": "john.doe@example.com",
+    "phone": "+1234567890",
+    "role": "instructor",
+    "profilePicture": "https://i.pravatar.cc",
+    "designation": "Senior Engineer"
+  }
+]

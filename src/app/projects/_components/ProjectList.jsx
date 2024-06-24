@@ -1,7 +1,10 @@
+import { getAllProjects } from "@/queries/queries";
 import Project from "./Project";
 import TableTh from "./th";
 
-export default function ProjectList() {
+export default async function ProjectList() {
+  const projects = await getAllProjects();
+  // console.log(projects);
   return (
     <>
       <div className="">
@@ -45,7 +48,11 @@ export default function ProjectList() {
             </tr>
           </thead>
           <tbody className="rounded-xl">
-            <Project />
+            {projects?.length > 0 ? (
+              projects?.map((project) => <Project key={project?.projectName} project={project} />)
+            ) : (
+              <div>No project found!</div>
+            )}
           </tbody>
         </table>
       </div>

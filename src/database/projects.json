@@ -1,0 +1,18 @@
+[
+  {
+    "_id": {
+      "$oid": "663a09b0bfe65e5778eedf51"
+    },
+    "projectName": "BOF",
+    "manpowerSite": "9",
+    "manpowerFactory": "1",
+    "projectHead": "Sujon",
+    "workingTime": "9am - 6pm",
+    "breakTime": "1 hr",
+    "overTime": "2 hr",
+    "offDay": "friday",
+    "startDate": "01-01-2023",
+    "endDate": "01-01-2025",
+    "remarks": "type any remarks"
+  }
+]
