@@ -1,5 +1,5 @@
-import Link from "next/link";
-import TableTd from "./td";
+import Link from 'next/link'
+import TableTd from './td'
 
 export default function Project({ project = {} }) {
   const {
@@ -15,7 +15,7 @@ export default function Project({ project = {} }) {
     startDate,
     endDate,
     remarks,
-  } = project;
+  } = project
 
   return (
     <>
@@ -61,5 +61,5 @@ export default function Project({ project = {} }) {
         </TableTd>
       </tr>
     </>
-  );
+  )
 }
