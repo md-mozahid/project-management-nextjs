@@ -1,34 +1,32 @@
-'use client'
+"use client";
 
-import { handleAddProject } from '@/app/actions'
-import { useEffect, useState } from 'react'
-import Label from './Label'
+import { handleUpdateProject } from "@/app/actions";
+import { useEffect, useState } from "react";
+import Label from "./Label";
 
 export default function EditProjectForm({ project = {}, id }) {
   const [data, setData] = useState({
-    projectName: '',
-    projectHead: '',
-    manpowerSite: '',
-    manpowerFactory: '',
-    workingTime: '',
-    breakTime: '',
-    overTime: '',
-    offDay: '',
-    startDate: '',
-    endDate: '',
-    remarks: '',
-  })
-// console.log(project)
+    projectName: "",
+    projectHead: "",
+    manpowerSite: "",
+    manpowerFactory: "",
+    workingTime: "",
+    breakTime: "",
+    overTime: "",
+    offDay: "",
+    startDate: "",
+    endDate: "",
+    remarks: "",
+  });
   const handleUpdate = async (e) => {
-    e.preventDefault()
-    const formData = new FormData(e.currentTarget)
-    await handleAddProject(formData, id)
-    // await handleUpdateProject(formData)
-  }
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    await handleUpdateProject(formData, id);
+  };
 
   useEffect(() => {
-    setData(project)
-  }, [project])
+    setData(project);
+  }, [project]);
 
   return (
     <>
@@ -176,5 +174,5 @@ export default function EditProjectForm({ project = {}, id }) {
         </form>
       </div>
     </>
-  )
+  );
 }

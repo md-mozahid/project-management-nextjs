@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 import { ProjectModel } from "@/models/project-model";
 import dbConnect from "@/services/mongo";
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 
 export async function POST(request) {
   await dbConnect();
@@ -17,6 +18,7 @@ export async function POST(request) {
     startDate,
     endDate,
     remarks,
+    projectId,
   } = await request.json();
 
   const newProject = {
@@ -33,9 +35,11 @@ export async function POST(request) {
     remarks,
   };
   try {
-    await ProjectModel.create(newProject);
-    return new NextResponse("Project has been created", {
-      status: 201,
+    // update
+    await ProjectModel.updateOne({ _id: projectId.toString() }, newProject);
+    revalidatePath("/projects");
+    return new NextResponse("Project has been updated", {
+      status: 200,
     });
   } catch (error) {
     console.log(error);
