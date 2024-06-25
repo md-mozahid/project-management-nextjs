@@ -1,7 +1,30 @@
 'use server'
 
+import { signIn } from '../../../auth'
 import dbConnect from '@/services/mongo'
 
+// login
+export async function Login(formData) {
+  // console.log(formData)
+  try {
+    const response = await signIn('credentials', {
+      email: formData.get('email'),
+      password: formData.get('password'),
+      redirect: false,
+    })
+    return response
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}
+
+// social login
+export async function doSocialLogin(formData) {
+  const action = formData.get('action')
+  await signIn(action, { redirectTo: '/' })
+}
+
+// add new project
 export async function handleAddProject(formData, id) {
   try {
     const projectName = formData.get('projectName')
@@ -44,6 +67,7 @@ export async function handleAddProject(formData, id) {
   }
 }
 
+// update project
 export async function handleUpdateProject(formData, id) {
   try {
     const projectName = formData.get('projectName')
@@ -86,6 +110,7 @@ export async function handleUpdateProject(formData, id) {
   }
 }
 
+// delete project
 export async function handleDeleteProject(id) {
   // console.log('index id', id)
   try {
@@ -95,7 +120,7 @@ export async function handleDeleteProject(id) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({id}),
+      body: JSON.stringify({ id }),
     })
     const data = await response.json()
     return data

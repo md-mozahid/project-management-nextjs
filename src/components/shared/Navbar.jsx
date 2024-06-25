@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import { AlignJustify, X } from "lucide-react";
-import UserProfile from "./Avatar";
-import { useState } from "react";
-import CustomLink from "../others/CustomLink";
+import { AlignJustify, X } from 'lucide-react'
+import { useState } from 'react'
+import CustomLink from '../others/CustomLink'
+import UserProfile from './Avatar'
 
 export default function Navbar() {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false)
   return (
     <>
       <div className="container mx-auto">
@@ -24,7 +24,9 @@ export default function Navbar() {
                     <CustomLink path="/">Home</CustomLink>
                   </li>
                   <li className="md:text-xl hover:text-rose-500">
-                    <CustomLink path="/crane-update">Crane Schedule</CustomLink>
+                    <CustomLink path="/craneSchedule">
+                      Crane Schedule
+                    </CustomLink>
                   </li>
                 </ul>
               </div>
@@ -44,11 +46,14 @@ export default function Navbar() {
                 <CustomLink path="/projects">Project List</CustomLink>
               </li>
               <li className="hover:text-rose-500">
-                <CustomLink path="#">Crane Schedule</CustomLink>
+                <CustomLink path="craneSchedule">Crane Schedule</CustomLink>
               </li>
             </ul>
           </div>
           <div className="flex items-center justify-center space-x-5 ">
+            <p>
+              <CustomLink path="/login">Login</CustomLink>
+            </p>
             <h2 className="text-3xl md:text-4xl cursor-pointer uppercase hidden md:block">
               <UserProfile />
             </h2>
@@ -56,5 +61,5 @@ export default function Navbar() {
         </nav>
       </div>
     </>
-  );
+  )
 }
