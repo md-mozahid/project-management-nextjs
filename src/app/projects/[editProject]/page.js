@@ -7,7 +7,7 @@ export default async function EditProjects({ params: { editProject } }) {
 //   console.log(project)
   return (
     <>
-      <EditProjectForm project={project} />
+      <EditProjectForm project={project} id={id} />
     </>
   )
 }

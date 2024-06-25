@@ -1,9 +1,10 @@
 'use client'
 
+import { handleAddProject } from '@/app/actions'
 import { useEffect, useState } from 'react'
 import Label from './Label'
 
-export default function EditProjectForm({ project }) {
+export default function EditProjectForm({ project = {}, id }) {
   const [data, setData] = useState({
     projectName: '',
     projectHead: '',
@@ -17,8 +18,12 @@ export default function EditProjectForm({ project }) {
     endDate: '',
     remarks: '',
   })
-  const handleUpdate = (e) => {
+// console.log(project)
+  const handleUpdate = async (e) => {
     e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    await handleAddProject(formData, id)
+    // await handleUpdateProject(formData)
   }
 
   useEffect(() => {
@@ -41,6 +46,7 @@ export default function EditProjectForm({ project }) {
                 value={data?.projectName}
                 placeholder="Project name"
                 className="inputElm"
+                onChange={(e) => setData(e.target.value)}
               />
             </div>
             <div className="">
@@ -51,6 +57,7 @@ export default function EditProjectForm({ project }) {
                 value={data?.projectHead}
                 placeholder="Project head"
                 className="inputElm"
+                onChange={(e) => setData(e.target.value)}
               />
             </div>
 
@@ -63,6 +70,7 @@ export default function EditProjectForm({ project }) {
                   value={data?.manpowerSite}
                   placeholder="Site"
                   className="inputElm w-1/2"
+                  onChange={(e) => setData(e.target.value)}
                 />
                 <input
                   type="text"
@@ -70,6 +78,7 @@ export default function EditProjectForm({ project }) {
                   value={data?.manpowerFactory}
                   placeholder="Factory"
                   className="inputElm w-1/2"
+                  onChange={(e) => setData(e.target.value)}
                 />
               </div>
             </div>
@@ -83,6 +92,7 @@ export default function EditProjectForm({ project }) {
                   value={data?.workingTime}
                   placeholder="Working time"
                   className="inputElm"
+                  onChange={(e) => setData(e.target.value)}
                 />
               </div>
               <div className="w-1/2">
@@ -93,6 +103,7 @@ export default function EditProjectForm({ project }) {
                   value={data?.breakTime}
                   placeholder="Break time"
                   className="inputElm"
+                  onChange={(e) => setData(e.target.value)}
                 />
               </div>
             </div>
@@ -106,6 +117,7 @@ export default function EditProjectForm({ project }) {
                   value={data?.overTime}
                   placeholder="Over time"
                   className="inputElm"
+                  onChange={(e) => setData(e.target.value)}
                 />
               </div>
               <div className="w-1/2">
@@ -116,6 +128,7 @@ export default function EditProjectForm({ project }) {
                   value={data?.offDay}
                   placeholder="Off day"
                   className="inputElm"
+                  onChange={(e) => setData(e.target.value)}
                 />
               </div>
             </div>
@@ -128,6 +141,7 @@ export default function EditProjectForm({ project }) {
                   value={data?.startDate}
                   placeholder="Start date"
                   className="inputElm"
+                  onChange={(e) => setData(e.target.value)}
                 />
               </div>
               <div className="w-1/2">
@@ -138,6 +152,7 @@ export default function EditProjectForm({ project }) {
                   value={data?.endDate}
                   placeholder="End date"
                   className="inputElm"
+                  onChange={(e) => setData(e.target.value)}
                 />
               </div>
             </div>
@@ -149,6 +164,7 @@ export default function EditProjectForm({ project }) {
                 value={data?.remarks}
                 placeholder="Remarks"
                 className="inputElm"
+                onChange={(e) => setData(e.target.value)}
                 cols="30"
                 rows="2"
               />
