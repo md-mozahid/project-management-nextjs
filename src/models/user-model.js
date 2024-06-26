@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose'
 
 const userSchema = new Schema({
   firstName: {
@@ -33,6 +33,6 @@ const userSchema = new Schema({
     required: false,
     type: String,
   },
-});
+})
 export const UserModel =
-  mongoose.models.User ?? mongoose.model("User", userSchema);
+  mongoose.models.User ?? mongoose.model('User', userSchema)

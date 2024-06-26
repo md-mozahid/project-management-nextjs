@@ -8,12 +8,12 @@ export default auth((request) => {
   const { nextUrl } = request
 
   const isAuthenticated = !!request.auth
-  console.log('isAuthenticated', isAuthenticated, nextUrl.pathname)
+  // console.log('isAuthenticated', isAuthenticated, nextUrl.pathname)
 
   const isPublicRoute =
     PUBLIC_ROUTES.find((route) => nextUrl.pathname.startsWith(route)) ||
     nextUrl.pathname === ROOT
-  console.log('isPublicRoute', { isPublicRoute })
+  // console.log('isPublicRoute', { isPublicRoute })
 
   if (!isAuthenticated && !isPublicRoute) {
     return Response.redirect(new URL(LOGIN, nextUrl))

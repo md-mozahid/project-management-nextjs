@@ -1,37 +1,15 @@
-'use client'
-
-import { AlignJustify, X } from 'lucide-react'
-import { useState } from 'react'
+import { auth } from '@/auth'
+import Profile from '../auth/Profile'
 import CustomLink from '../others/CustomLink'
-import UserProfile from './Avatar'
+import MobileNav from './MobileNav'
 
-export default function Navbar() {
-  const [toggle, setToggle] = useState(false)
+export default async function Navbar() {
+  const session = await auth()
   return (
     <>
       <div className="container mx-auto">
         <nav className="flex items-center justify-between border-b pb-2 md:py-3 px-5">
-          <div className="cursor-pointer z-30 relative md:hidden">
-            <AlignJustify />
-            {toggle && (
-              <div className="fixed top-0 bottom-0 left-0 z-10 p-4 w-[25%] h-[100vh] flex items-end justify-end flex-col bg-slate-700">
-                <X
-                  onClick={() => setToggle(false)}
-                  className="text-2xl text-rose-500"
-                />
-                <ul className="h-full w-full flex flex-col items-center justify-start mt-12 space-y-4 uppercase">
-                  <li className="md:text-xl hover:text-rose-500">
-                    <CustomLink path="/">Home</CustomLink>
-                  </li>
-                  <li className="md:text-xl hover:text-rose-500">
-                    <CustomLink path="/craneSchedule">
-                      Crane Schedule
-                    </CustomLink>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
+          <MobileNav />
           <CustomLink path="/addProject">
             <button className="btn btn-primary btn-fw">
               <span className="text-xl">+</span> Add Project
@@ -51,12 +29,7 @@ export default function Navbar() {
             </ul>
           </div>
           <div className="flex items-center justify-center space-x-5 ">
-            <p>
-              <CustomLink path="/login">Login</CustomLink>
-            </p>
-            <h2 className="text-3xl md:text-4xl cursor-pointer uppercase hidden md:block">
-              <UserProfile />
-            </h2>
+            <Profile session={session} />
           </div>
         </nav>
       </div>

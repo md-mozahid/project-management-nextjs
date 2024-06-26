@@ -25,6 +25,7 @@ export const {
               credentials.password,
               user.password
             )
+
             if (isMatch) {
               return user
             } else {
@@ -36,12 +37,11 @@ export const {
             throw new Error('User not found')
           }
         } catch (error) {
-          console.error(error)
-          throw new Error(error)
+          console.error(err)
+          throw new Error(err)
         }
       },
     }),
-
     GoggleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
